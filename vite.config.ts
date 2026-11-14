@@ -3,8 +3,10 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
 
-export default defineConfig(() => {
+export default defineConfig(({command}) => {
   return {
+    // Served from https://<user>.github.io/<repo>/ when built for GitHub Pages.
+    base: command === 'build' ? '/Minecraftstudio/' : '/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
