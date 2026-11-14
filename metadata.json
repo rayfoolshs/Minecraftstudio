@@ -1,0 +1,8 @@
+{
+  "name": "NoteBlock Studio — MIDI to Minecraft Note Blocks",
+  "description": "Convert MIDI files into playable Minecraft Note Block sheet music, 3D redstone stages, tuning click counts, repeater timings, and build blueprints.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

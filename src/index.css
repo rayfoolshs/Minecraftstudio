@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bricolage Grotesque", system-ui, -apple-system, sans-serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background-color: #f7f8fa;
+  color: #141824;
+  -webkit-font-smoothing: antialiased;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Print Preview Page Styling */
+.print-page {
+  width: calc(var(--page-width, 297mm) * var(--preview-zoom, 1));
+  aspect-ratio: var(--page-ratio, 297 / 210);
+  max-width: none;
+  margin: 0 auto 24px;
+  padding: 10mm;
+  background: #ffffff;
+  border: 1px solid #dfe3ec;
+  box-shadow: 0 4px 20px rgba(20, 24, 36, 0.08);
+  box-sizing: border-box;
+  position: relative;
+}
+
+.print-page-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.score-system {
+  break-inside: avoid;
+  page-break-inside: avoid;
+  margin-bottom: 6px;
+}
+
+.score-system svg,
+.score-canvas svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+@media print {
+  body {
+    background: #ffffff !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only-container {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .print-preview-scroll {
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  .print-page {
+    width: var(--page-width) !important;
+    height: var(--page-height) !important;
+    aspect-ratio: auto !important;
+    margin: 0 !important;
+    padding: 10mm !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    break-after: page;
+    page-break-after: always;
+  }
+
+  .print-page:last-child {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  .score-system {
+    margin: 0 0 4mm;
+  }
+}
